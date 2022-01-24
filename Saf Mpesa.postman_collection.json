@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "4f47ff6f-1e25-4455-a40f-edf8d7f647ba",
+		"name": "Saf Mpesa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send Money",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"receiver_phone\": \"0788226690\",\n  \"sender_phone\": \"0782222290\",\n  \"amount\": 1000.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"transfer"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Send Money",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"receiver_phone\": \"0788226690\",\n  \"sender_phone\": \"0782222290\",\n  \"amount\": 1000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/customers/transfer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								"transfer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Jan 2022 22:16:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Money Send Successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get all transactions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"receiver_phone\": \"0788226690\",\n  \"sender_phone\": \"0782222290\",\n  \"amount\": 13000.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"transactions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all transactions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"receiver_phone\": \"0788226690\",\n  \"sender_phone\": \"0782222290\",\n  \"amount\": 13000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"transactions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Jan 2022 22:08:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"61eedeb8e5dec769e7b6d297\",\n        \"receiver_phone\": \"0788226690\",\n        \"sender_phone\": \"0782222290\",\n        \"amount\": 2000,\n        \"created\": \"2022-01-24T20:15:36.61\"\n    },\n    {\n        \"id\": \"61eee2a3aac5df0d695d12d1\",\n        \"receiver_phone\": \"0788226690\",\n        \"sender_phone\": \"0782222290\",\n        \"amount\": 2000,\n        \"created\": \"2022-01-24T20:32:19.103\"\n    },\n    {\n        \"id\": \"61eee390aac5df0d695d12d2\",\n        \"receiver_phone\": \"0788226690\",\n        \"sender_phone\": \"0782222290\",\n        \"amount\": 2000,\n        \"created\": \"2022-01-24T20:36:16.308\"\n    },\n    {\n        \"id\": \"61eee6a4e5e90706679e1199\",\n        \"receiver_phone\": \"0788226690\",\n        \"sender_phone\": \"0782222290\",\n        \"amount\": 1000,\n        \"created\": \"2022-01-24T20:49:24.84\"\n    },\n    {\n        \"id\": \"61eefb277f88652246dd8043\",\n        \"receiver_phone\": \"0788226690\",\n        \"sender_phone\": \"0782222290\",\n        \"amount\": 1000,\n        \"created\": \"2022-01-24T22:16:55.331\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get all customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all customers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Jan 2022 10:11:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"61ee69ea6e0dbf3635e93876\",\n        \"firstName\": \"Pato\",\n        \"lastName\": \"Kim\",\n        \"email\": \"pato@gmail.com\",\n        \"phone\": \"0715786923\",\n        \"gender\": \"MALE\",\n        \"amount\": 5000,\n        \"created\": \"2022-01-24T11:57:14.782\"\n    },\n    {\n        \"id\": \"61ee730c687f1f460accec65\",\n        \"firstName\": null,\n        \"lastName\": \"Bilala\",\n        \"email\": \"bilala@gmail.com\",\n        \"phone\": \"0788226671\",\n        \"gender\": \"FEMALE\",\n        \"amount\": 3000,\n        \"created\": null\n    },\n    {\n        \"id\": \"61ee737b687f1f460accec66\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": \"bilal@gmail.com\",\n        \"phone\": null,\n        \"gender\": null,\n        \"amount\": null,\n        \"created\": null\n    },\n    {\n        \"id\": \"61ee745f687f1f460accec67\",\n        \"firstName\": \"Daniel\",\n        \"lastName\": \"Martin\",\n        \"email\": \"daniel@gmail.com\",\n        \"phone\": \"0788226690\",\n        \"gender\": \"MALE\",\n        \"amount\": 4000,\n        \"created\": null\n    },\n    {\n        \"id\": \"61ee77b1687f1f460accec68\",\n        \"firstName\": \"Nana\",\n        \"lastName\": \"Kamau\",\n        \"email\": \"kamau@gmail.com\",\n        \"phone\": \"0788222290\",\n        \"gender\": \"MALE\",\n        \"amount\": 4000,\n        \"created\": null\n    },\n    {\n        \"id\": \"61ee77f7ffe1e9647984cd0e\",\n        \"firstName\": \"Nana\",\n        \"lastName\": \"Nana\",\n        \"email\": \"nana@gmail.com\",\n        \"phone\": \"0782222290\",\n        \"gender\": \"MALE\",\n        \"amount\": 12000,\n        \"created\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create Customers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"Five\",\n  \"email\": \"testfive@gmail.com\",\n  \"phone\": \"0700222299\",\n  \"gender\": \"MALE\",\n  \"amount\": 30000.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Customers",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"Five\",\n  \"email\": \"testfive@gmail.com\",\n  \"phone\": \"0700222299\",\n  \"gender\": \"MALE\",\n  \"amount\": 30000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Jan 2022 22:18:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 201,\n    \"message\": \"Customer Created Successfully\"\n}"
+				}
+			]
+		}
+	]
+}
