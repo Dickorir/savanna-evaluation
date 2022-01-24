@@ -23,6 +23,8 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
+
+
     public ApiResponse addNewCustomer(Customer customer) {
         /* check if email and phone exist */
         Optional<Customer> customerOptional = customerRepository.findCustomerByEmail(customer.getEmail());

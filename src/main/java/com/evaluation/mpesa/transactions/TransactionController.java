@@ -18,17 +18,4 @@ public class TransactionController {
     public List<Transaction> fetchAllTransactions() {
         return transactionService.getAllTransactions();
     }
-
-    @PostMapping
-    public void registerNewTransaction (@RequestBody Transaction transaction) {
-        transaction.setCreated(LocalDateTime.now());
-        transactionService.addNewTransaction(transaction);
-    }
-
-//    @PostMapping
-//    public Transaction registerNewTransaction(@RequestBody Transaction transaction) {
-//        transaction.setCreated(LocalDateTime.now());
-//        transactionService.addNewTransaction(transaction);
-//        return transaction;
-//    }
 }

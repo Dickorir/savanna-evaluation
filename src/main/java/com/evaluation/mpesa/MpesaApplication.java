@@ -19,30 +19,30 @@ public class MpesaApplication {
 		SpringApplication.run(MpesaApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(CustomerRepository repository) {
-		return args -> {
-
-			String email = "pato@gmail.com";
-			Customer customer = new Customer(
-					"Pato",
-					"Kim",
-					email,
-					"0715786923",
-					Gender.MALE,
-					5000.00,
-					LocalDateTime.now()
-			);
-
-			// this is created in the reposiroty
-			repository.findCustomerByEmail(email).ifPresentOrElse(c -> {
-				System.out.println(c.getEmail() + " already exist");
-			}, () -> {
-				System.out.println("Inserting Customer " + customer);
-				repository.insert(customer);
-			});
-
-		};
-	}
+//	@Bean
+//	CommandLineRunner runner(CustomerRepository repository) {
+//		return args -> {
+//
+//			String email = "pato@gmail.com";
+//			Customer customer = new Customer(
+//					"Pato",
+//					"Kim",
+//					email,
+//					"0715786923",
+//					Gender.MALE,
+//					5000.00,
+//					LocalDateTime.now()
+//			);
+//
+//			// this is created in the reposiroty
+//			repository.findCustomerByEmail(email).ifPresentOrElse(c -> {
+//				System.out.println(c.getEmail() + " already exist");
+//			}, () -> {
+//				System.out.println("Inserting Customer " + customer);
+//				repository.insert(customer);
+//			});
+//
+//		};
+//	}
 
 }
