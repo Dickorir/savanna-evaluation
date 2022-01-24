@@ -23,44 +23,56 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public void addNewCustomer(Customer customer) {
+    public ApiResponse addNewCustomer(Customer customer) {
         /* check if email and phone exist */
         Optional<Customer> customerOptional = customerRepository.findCustomerByEmail(customer.getEmail());
         if (customerOptional.isPresent()) {
-            throw new IllegalStateException(customer.getEmail() + " email taken");
+            //throw new IllegalStateException(customer.getEmail() + " email taken");
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.setCode(201);
+            apiResponse.setMessage("email is taken");
+
+            return apiResponse;
         }
         Optional<Customer> customerPhone = customerRepository.findCustomerByPhone(customer.getPhone());
         if (customerPhone.isPresent()) {
-            throw new IllegalStateException(customer.getPhone() + " phone number taken");
+//            throw new IllegalStateException(customer.getPhone() + " phone number taken");
+
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.setCode(201);
+            apiResponse.setMessage(customer.getPhone() + " phone number taken");
+
+            return apiResponse;
         }
+
         customerRepository.save(customer);
+
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setCode(201);
+        apiResponse.setMessage("Customer Created Successfully");
+
+        return apiResponse;
     }
 
     public ApiResponse transferMoney(String receiver_phone, String sender_phone, Double amountToSend) {
 
+        String response;
         Optional<Customer> the_sender = customerRepository.findCustomerByPhone(sender_phone);
         if (the_sender.isPresent()) {
             Customer sender = the_sender.get();
-            System.out.println(sender);
-            System.out.println("found one");
 
             if (amountToSend <= sender.getAmount()) {
-              return handleReceiverAndSendMoney(sender, amountToSend, receiver_phone);
+                return handleReceiverAndSendMoney(sender, amountToSend, receiver_phone);
             } else {
-                System.out.println("Insufficient funds");
+                response = "Insufficient funds";
             }
         } else {
-            throw new IllegalStateException("Sender " + sender_phone + " cannot be found");
+            response = "Sender " + sender_phone + " cannot be found";
         }
-//        System.out.println(customer.getAmount());
-        System.out.println("fika");
-        System.out.println(receiver_phone);
-        System.out.println(sender_phone);
-        System.out.println(amountToSend);
 
         ApiResponse apiResponse = new ApiResponse();
-        apiResponse.setResponseCode(400);
-        apiResponse.setResponseMessage("The transaction failed");
+        apiResponse.setCode(400);
+        apiResponse.setMessage(response);
 
         return apiResponse;
 
@@ -95,8 +107,8 @@ public class CustomerService {
             transactionService.addNewTransaction(transaction);
 
             ApiResponse apiResponse = new ApiResponse();
-            apiResponse.setResponseCode(200);
-            apiResponse.setResponseMessage("Money Send Successfully");
+            apiResponse.setCode(200);
+            apiResponse.setMessage("Money Send Successfully");
 
             return apiResponse;
 

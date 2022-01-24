@@ -1,7 +1,6 @@
 package com.evaluation.mpesa.customers;
 
 import com.evaluation.mpesa.model.ApiResponse;
-import com.evaluation.mpesa.transactions.Transaction;
 import com.evaluation.mpesa.transactions.TransactionDto;
 import com.evaluation.mpesa.transactions.TransactionService;
 import lombok.AllArgsConstructor;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/customers")
@@ -29,10 +27,9 @@ public class CustomerController {
 //    }
 
     @PostMapping
-    public Customer registerNewCustomer(@RequestBody Customer customer) {
+    public ApiResponse registerNewCustomer(@RequestBody Customer customer) {
         customer.setCreated(LocalDateTime.now());
-        customerService.addNewCustomer(customer);
-        return customer;
+        return customerService.addNewCustomer(customer);
     }
 
     @PostMapping(path = "transfer")

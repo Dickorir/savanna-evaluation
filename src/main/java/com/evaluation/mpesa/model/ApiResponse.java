@@ -1,25 +1,25 @@
 package com.evaluation.mpesa.model;
 
 public class ApiResponse {
-    private Integer responseCode;
-    private String responseMessage;
+    private Integer code;
+    private String message;
 
     public ApiResponse() {
     }
 
-    public Integer getResponseCode() {
-        return responseCode;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setResponseCode(Integer responseCode) {
-        this.responseCode = responseCode;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public String getResponseMessage() {
-        return responseMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setResponseMessage(String responseMessage) {
-        this.responseMessage = responseMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
